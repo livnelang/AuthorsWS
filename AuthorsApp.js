@@ -7,15 +7,18 @@ app.get('/', function(req,res) {
 	//res.send('HelloWorld');
 	// Gets Json FileS
 
-	var objectData;
+	/*var objectData;
 	fs.readFile('./Books.js', 'utf8', function (err, data) {
-	  //if (err) throw err;
+	  if (err) throw err;
 	  console.log(data);
 	  objectData = JSON.parse(data.toString());
 	  	res.send(objectData);
-});
+}); */
 
-	console.log(objectData);
+	 console.log("inside get");
+	var dao = require('./MyAuthorsDAO');
+	//dao.printAllData();
+	console.log(dao);
 });
 
 // Get Functions Routes
