@@ -2,6 +2,7 @@ var express = require('express');
 var url = require('url');
 var app = express();
 var fs = require('fs');
+var MyAuthorsDAO = require('./MyAuthorsDAO');
 
 app.get('/', function(req,res) {
 	//res.send('HelloWorld');
@@ -15,10 +16,12 @@ app.get('/', function(req,res) {
 	  	res.send(objectData);
 }); */
 
-	 console.log("inside get");
-	var dao = require('./MyAuthorsDAO');
+	var dao = MyAuthorsDAO();
 	//dao.printAllData();
-	console.log(dao);
+	var data = dao.getData();
+	console.log(data);
+	/*console.log(data);
+	res.send("adasd");*/
 });
 
 // Get Functions Routes

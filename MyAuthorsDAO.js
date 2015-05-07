@@ -6,17 +6,33 @@ var fs = require('fs');
 */
 function MyAuthorsDAO(data) {
 	console.log(" -- Data Constructor Activated -- \n");
-	this.authors = data;
+	//console.log(data);
+	this.authors = [];
+	this.name = "livne";
 }
 	
+/**
+/ Set JSON Data Function
+*/
+MyAuthorsDAO.prototype.setData = function(data) {
+	this.authors = data;
+};
+
 
 /**
-/ Get Details Function
+/ Print to Console JSON File
 */
 MyAuthorsDAO.prototype.printAllData = function() {
+	console.log(this.name);
 	console.log( "Authors Data:  \n"+ this.authors);
 };	
 
+/**
+/ Get Back JSON Data Objet
+*/
+MyAuthorsDAO.prototype.getData = function() {
+	return this.authors;
+};	
 
 
 /**
@@ -24,14 +40,20 @@ MyAuthorsDAO.prototype.printAllData = function() {
 */
 module.exports = function() {
 	console.log('try');
-	fs.readFile('./Books.js', 'utf8', function (err, data) {
+	var x=5;
 	var jsonData;
-	  if (err) {
-	  	throw err;
-	  } 
-	  console.log(data);
+	var dao;
+	// Need To Be Synced !
+	fs.readFile('./Books.js', 'utf8', function (err, data) {
+	  if (err) throw err;
 	  jsonData = JSON.parse(data.toString());
-	});
-	var dao = new MyAuthorsDAO(jsonData);
-	return dao;
+	  dao = new MyAuthorsDAO(jsonData);
+	  console.log(x);
+	  //console.log(jsonData);
+	})
+	console.log("asdsd");
+		//var dao = new MyAuthorsDAO(jsonData);
+		//dao.setData(jsonData);
+		console.log(dao);
+		return dao;	
 };
