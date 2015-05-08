@@ -67,4 +67,4 @@ app.get('/bookByYear/:year', function (req,res)  {
 // Get Functions Routes
 
 app.listen(process.env.PORT || 3000);
-console.log('Listening on port ' + app.address().port +' ..');
+console.log('Listening on port ' + process.env.PORT +' ..');
