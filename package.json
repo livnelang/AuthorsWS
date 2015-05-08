@@ -1,0 +1,18 @@
+{
+  "name": "Excersize1",
+  "version": "1.0.0",
+  "description": "Authers Web Service",
+  "main": "AuthorsApp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "cd https://github.com/livnelang/AuthorsWS"
+  },
+  "author": "Livne Lang",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.12.3"
+  }
+}
