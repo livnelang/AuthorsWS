@@ -17,18 +17,13 @@ function printReqPath(req) {
 */
 app.get('/', function(req,res) {
 	res.set('Content-Type', 'text/html');
-	res.send('<html>
-				<body> <h1>Welcome, you can choose 3 routing ways : </h1>
-						<h2> https://authorsws.herokuapp.com/bestSellers </h2>
-						<h2> https://authorsws.herokuapp.com/bookById/number </h2>
-						<h2> https://authorsws.herokuapp.com/bookByYear/number</h2> <p></p>
-						<h2> Enjoy </h2>
-
-				</body>
-				</html>');	
-	//console.log(data.authors);
-
+	res.send('<html><body> <h1>Welcome, you can choose 3 routing ways : </h1>'+
+						'<h2> https://authorsws.herokuapp.com/bestSellers </h2>'+
+						'<h2> https://authorsws.herokuapp.com/bookById/number </h2>'+
+						'<h2> https://authorsws.herokuapp.com/bookByYear/number</h2> <p></p>'+
+						'<h2> Enjoy </h2></body></html>');
 });
+
 
 /*
 / BestSellers Rout
