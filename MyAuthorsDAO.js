@@ -7,53 +7,85 @@ var fs = require('fs');
 function MyAuthorsDAO(data) {
 	console.log(" -- Data Constructor Activated -- \n");
 	//console.log(data);
-	this.authors = [];
+	this.data_obj = data;;
 	this.name = "livne";
 }
-	
-/**
-/ Set JSON Data Function
-*/
-MyAuthorsDAO.prototype.setData = function(data) {
-	this.authors = data;
-};
-
 
 /**
 / Print to Console JSON File
 */
 MyAuthorsDAO.prototype.printAllData = function() {
 	console.log(this.name);
-	console.log( "Authors Data:  \n"+ this.authors);
+	console.log( "Authors Data:  \n"+ this.data_obj);
 };	
 
 /**
 / Get Back JSON Data Objet
 */
 MyAuthorsDAO.prototype.getData = function() {
-	return this.authors;
-};	
+	return this.data_obj;
+};
+
+/**
+/ Gets All BestSellers Books
+*/
+MyAuthorsDAO.prototype.bestSellers = function() {
+	var arr = this.data_obj.authors;
+	var bestsellers = [],book;
+	for(var i = 0; i<arr.length; i++) { 
+		for(var j =0;j<arr[i].books.length;j++) {
+			book = arr[i].books[j];
+			if(book.bestseller == true) {
+				console.log(book);
+				bestsellers.push(book);
+			}
+		}
+	}
+	return bestsellers;
+};
+
+/**
+/ Gets A book by id
+*/
+MyAuthorsDAO.prototype.getBookById = function(book_id) {
+	var arr = this.data_obj.authors;
+	for(var i = 0; i<arr.length; i++) { 
+		for(var j =0;j<arr[i].books.length;j++) {
+			book = arr[i].books[j];
+			if(book.id == book_id) {
+				return book;
+			}
+		}
+	}
+	return null;
+};
+
+/**
+/ Gets All books by specific year
+*/
+MyAuthorsDAO.prototype.getBookByYear = function(_year) {
+	var arr = this.data_obj.authors;
+	var year_books = [];
+	for(var i = 0; i<arr.length; i++) { 
+		for(var j =0;j<arr[i].books.length;j++) {
+			book = arr[i].books[j];
+			if(book.year == _year) {
+				year_books.push(book);
+			}
+		}
+	}
+	return year_books;
+};
+
+
 
 
 /**
 / What the module exports on initiate (Creating an instance)
 */
 module.exports = function() {
-	console.log('try');
-	var x=5;
-	var jsonData;
-	var dao;
-	// Need To Be Synced !
-	fs.readFile('./Books.js', 'utf8', function (err, data) {
-	  if (err) throw err;
-	  jsonData = JSON.parse(data.toString());
-	  dao = new MyAuthorsDAO(jsonData);
-	  console.log(x);
-	  //console.log(jsonData);
-	})
-	console.log("asdsd");
-		//var dao = new MyAuthorsDAO(jsonData);
-		//dao.setData(jsonData);
-		console.log(dao);
-		return dao;	
+	var jsonData,dao;
+	jsonData = JSON.parse(fs.readFileSync('./Books.js', "utf8"));
+	dao = new MyAuthorsDAO(jsonData);
+	return dao;	
 };
