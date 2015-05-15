@@ -30,9 +30,9 @@ returns: all books at specified year
 
 Debug Options
 --------------
-Every Route option, has special header message +
-his path number.
-Example: Header-1: " Hello Route no' 1 "
+<p>Every Route option, has special header message +
+his path number.</p>
+<p>Example: Header-1: " Hello Route no' 1 "</p>
 
 Check it on your browser tools.
 
