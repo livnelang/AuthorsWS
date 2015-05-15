@@ -9,9 +9,9 @@ GitHub: https://github.com/livnelang/AuthorsWS
 API Documentation
 --------------
 **Routing Paths :**
-* https://authorsws.herokuapp.com/bestSellers
-* https://authorsws.herokuapp.com/bookById/number
-* https://authorsws.herokuapp.com/bookByYear/number
+* 1) https://authorsws.herokuapp.com/bestSellers
+* 2) https://authorsws.herokuapp.com/bookById/number
+* 3) https://authorsws.herokuapp.com/bookByYear/number
 
 **AuthorsDAO Functions :**
 
@@ -28,7 +28,13 @@ returns: specific book by his id
 returns: all books at specified year
 
 
+Debug Options
+--------------
+Every Route option, has special header message +
+his path number.
+Example: Header-1: " Hello Route no' 1 "
 
+Check it on your browser tools.
 
 
 
